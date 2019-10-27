@@ -1,0 +1,302 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">Score Card</h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">TEAM-A Score Board</h4>
+          </div>
+          <div class="card-body">
+            <form name="teamAForm" novalidate #teamAForm="ngForm">
+              <div class="col-sm-12">
+                <hr>
+                <h2 class="source-sans-pro-300 text-capitalize">Team-A Stats:</h2>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-6 mb-2">
+                    <label for="specs">Add Player's<span class="required"></span></label>
+                  </div>
+                  <div class="col-sm-6 text-right mb-2">
+                    <button class="btn btn-outline-secondary btn-sm" (click)="addFieldValue()" ngbTooltip="Add"><i
+                        class="mdi mdi-plus"></i></button>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr class="row d-flex" *ngFor="let new of teamAList; let i=index">
+                        <td class="col-sm-4">
+                          <input type="text" class="form-control w-100 text-capitalize form-control-sm"
+                            [(ngModel)]="new.playerName" name="{{new.playerName}}" placeholder="player Name"
+                            #playerName="ngModel" minlength="3" [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="playerName.invalid && (teamAForm.submitted || playerName.touched )">
+                            <small class="text-danger" *ngIf="playerName.errors.required">playerName is
+                              required.
+                            </small>
+                            <small class="text-danger" *ngIf="playerName.errors.minlength">playerName should
+                              have
+                              minimum 3 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.runs"
+                            name="{{new.runs}}" placeholder="Runs" #runs="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="runs.invalid && (teamAForm.submitted || runs.touched)">
+                            <small class="text-danger" *ngIf="runs.errors.required">Runs is required.
+                            </small>
+                            <small class="text-danger" *ngIf="runs.errors.minlength">Runs should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.boundaries"
+                            name="{{new.boundaries}}" placeholder="Boundaries" #boundaries="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="boundaries.invalid && (teamAForm.submitted || boundaries.touched)">
+                            <small class="text-danger" *ngIf="boundaries.errors.required">Boundaries is required.
+                            </small>
+                            <small class="text-danger" *ngIf="boundaries.errors.minlength">Boundaries should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.wickets"
+                            name="{{new.wickets}}" placeholder="Wickets" #wickets="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="wickets.invalid && (teamAForm.submitted || wickets.touched)">
+                            <small class="text-danger" *ngIf="wickets.errors.required">Wickets is required.
+                            </small>
+                            <small class="text-danger" *ngIf="wickets.errors.minlength">Wickets should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversPlayed"
+                            name="{{new.oversPlayed}}" placeholder="Overs Played" #oversPlayed="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="oversPlayed.invalid && (teamAForm.submitted || oversPlayed.touched)">
+                            <small class="text-danger" *ngIf="oversPlayed.errors.required">Overs Played is required.
+                            </small>
+                            <small class="text-danger" *ngIf="oversPlayed.errors.minlength">Overs Played should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversBowled"
+                            name="{{new.oversBowled}}" placeholder="Overs Bowled" #oversBowled="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="oversBowled.invalid && (teamAForm.submitted || oversBowled.touched)">
+                            <small class="text-danger" *ngIf="oversBowled.errors.required">Overs Bowled is required.
+                            </small>
+                            <small class="text-danger" *ngIf="oversBowled.errors.minlength">Overs Bowled should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+                        <td class="col-sm-1 text-danger"><i class="mdi mdi-minus" ngbTooltip="Remove"
+                            (click)="deleteFieldValue(i)"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="text-right source-sans-pro-300">
+              <button type="submit" class="btn btn-success btn-sm source-sans-pro-300" (click)="addTeamA(teamAForm)"
+                [disabled]="!teamAForm.form.valid">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">TEAM-B Score Board</h4>
+          </div>
+          <div class="card-body">
+            <form name="teamBForm" novalidate #teamBForm="ngForm">
+              <div class="col-sm-12">
+                <hr>
+                <h2 class="source-sans-pro-300 text-capitalize">Team-B Stats:</h2>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-6 mb-2">
+                    <label for="specs">Add Player's<span class="required"></span></label>
+                  </div>
+                  <div class="col-sm-6 text-right mb-2">
+                    <button class="btn btn-outline-secondary btn-sm" (click)="addFieldValueB()" ngbTooltip="Add"><i
+                        class="mdi mdi-plus"></i></button>
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr class="row d-flex" *ngFor="let new of teamBList; let i=index">
+                        <td class="col-sm-4">
+                          <input type="text" class="form-control w-100 text-capitalize form-control-sm"
+                            [(ngModel)]="new.playerName" name="{{new.playerName}}" placeholder="player Name"
+                            #playerName="ngModel" minlength="3" [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="playerName.invalid && (teamBForm.submitted || playerName.touched )">
+                            <small class="text-danger" *ngIf="playerName.errors.required">playerName is
+                              required.
+                            </small>
+                            <small class="text-danger" *ngIf="playerName.errors.minlength">playerName should
+                              have
+                              minimum 3 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.runs"
+                            name="{{new.runs}}" placeholder="Runs" #runs="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="runs.invalid && (teamBForm.submitted || runs.touched)">
+                            <small class="text-danger" *ngIf="runs.errors.required">Runs is required.
+                            </small>
+                            <small class="text-danger" *ngIf="runs.errors.minlength">Runs should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.boundaries"
+                            name="{{new.boundaries}}" placeholder="Boundaries" #boundaries="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="boundaries.invalid && (teamBForm.submitted || boundaries.touched)">
+                            <small class="text-danger" *ngIf="boundaries.errors.required">Boundaries is required.
+                            </small>
+                            <small class="text-danger" *ngIf="boundaries.errors.minlength">Boundaries should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.wickets"
+                            name="{{new.wickets}}" placeholder="Wickets" #wickets="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="wickets.invalid && (teamBForm.submitted || wickets.touched)">
+                            <small class="text-danger" *ngIf="wickets.errors.required">Wickets is required.
+                            </small>
+                            <small class="text-danger" *ngIf="wickets.errors.minlength">Wickets should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversPlayed"
+                            name="{{new.oversPlayed}}" placeholder="Overs Played" #oversPlayed="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="oversPlayed.invalid && (teamBForm.submitted || oversPlayed.touched)">
+                            <small class="text-danger" *ngIf="oversPlayed.errors.required">Overs Played is required.
+                            </small>
+                            <small class="text-danger" *ngIf="oversPlayed.errors.minlength">Overs Played should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+
+                        <td class="col-sm-4">
+                          <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversBowled"
+                            name="{{new.oversBowled}}" placeholder="Overs Bowled" #oversBowled="ngModel" minlength="1"
+                            [ngModelOptions]="{standalone: true}">
+                          <div *ngIf="oversBowled.invalid && (teamBForm.submitted || oversBowled.touched)">
+                            <small class="text-danger" *ngIf="oversBowled.errors.required">Overs Bowled is required.
+                            </small>
+                            <small class="text-danger" *ngIf="oversBowled.errors.minlength">Overs Bowled should have
+                              minimum 1 characters.</small>
+                          </div>
+                        </td>
+                        <td class="col-sm-1 text-danger"><i class="mdi mdi-minus" ngbTooltip="Remove"
+                            (click)="deleteFieldValueB(i)"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="text-right source-sans-pro-300">
+              <button type="submit" class="btn btn-success btn-sm source-sans-pro-300" (click)="addTeamB(teamBForm)"
+                [disabled]="!teamBForm.form.valid">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">TEAM-A Final Stats</h4>
+          </div>
+          <div class="card-body">
+            <table class="mt-4 table table-striped opensans">
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalRuns}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalBoundaries}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalOversPlayed}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalOversBowled}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalWickets}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="text-center">TEAM-B Final Stats</h4>
+            </div>
+            <div class="card-body">
+              <table class="mt-4 table table-striped opensans">
+                <tr>
+                  <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
+                  <td class="font-weight-bold">{{teamB.totalRuns}}</td>
+                </tr>
+                <tr>
+                  <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
+                  <td class="font-weight-bold">{{teamB.totalBoundaries}}</td>
+                </tr>
+                <tr>
+                  <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
+                  <td class="font-weight-bold">{{teamB.totalOversPlayed}}</td>
+                </tr>
+                <tr>
+                  <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
+                  <td class="font-weight-bold">{{teamB.totalOversBowled}}</td>
+                </tr>
+                <tr>
+                  <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
+                  <td class="font-weight-bold">{{teamB.totalWickets}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>

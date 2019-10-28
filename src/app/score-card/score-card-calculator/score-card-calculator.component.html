@@ -236,69 +236,77 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="text-center">TEAM-A Final Stats</h4>
-              </div>
-              <div class="card-body">
-                <table class="mt-4 table table-striped opensans">
-                  <tr>
-                    <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
-                    <td class="font-weight-bold">{{teamA.totalRuns}}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
-                    <td class="font-weight-bold">{{teamA.totalBoundaries}}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
-                    <td class="font-weight-bold">{{teamA.totalOversPlayed}}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
-                    <td class="font-weight-bold">{{teamA.totalOversBowled}}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
-                    <td class="font-weight-bold">{{teamA.totalWickets}}</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">TEAM-A Final Stats<span *ngIf="teamA.result" class="badge-pill  badge badge-info">
+                <strong class="text-capitalize">{{teamA.result}}</strong></span></h4>
           </div>
-          <div class="col-sm-6">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="text-center">TEAM-B Final Stats</h4>
-                </div>
-                <div class="card-body">
-                  <table class="mt-4 table table-striped opensans">
-                    <tr>
-                      <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
-                      <td class="font-weight-bold">{{teamB.totalRuns}}</td>
-                    </tr>
-                    <tr>
-                      <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
-                      <td class="font-weight-bold">{{teamB.totalBoundaries}}</td>
-                    </tr>
-                    <tr>
-                      <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
-                      <td class="font-weight-bold">{{teamB.totalOversPlayed}}</td>
-                    </tr>
-                    <tr>
-                      <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
-                      <td class="font-weight-bold">{{teamB.totalOversBowled}}</td>
-                    </tr>
-                    <tr>
-                      <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
-                      <td class="font-weight-bold">{{teamB.totalWickets}}</td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
+          <div class="card-body">
+            <table class="mt-4 table table-striped opensans">
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalRuns}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalBoundaries}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalOversPlayed}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalOversBowled}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
+                <td class="font-weight-bold">{{teamA.totalWickets}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="text-center">TEAM-B Final Stats<span *ngIf="teamB.result" class="badge-pill  badge badge-info">
+                <strong class="text-capitalize">{{teamB.result}}</strong></span></h4>
+          </div>
+          <div class="card-body">
+            <table class="mt-4 table table-striped opensans">
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Runs:</strong></td>
+                <td class="font-weight-bold">{{teamB.totalRuns}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Boundaries:</strong></td>
+                <td class="font-weight-bold">{{teamB.totalBoundaries}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Played:</strong></td>
+                <td class="font-weight-bold">{{teamB.totalOversPlayed}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Overs Bowled:</strong></td>
+                <td class="font-weight-bold">{{teamB.totalOversBowled}}</td>
+              </tr>
+              <tr>
+                <td class="text-info text-uppercase font-weight-bold"><strong>Total Wickets Taken:</strong></td>
+                <td class="font-weight-bold">{{teamB.totalWickets}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn btn-success btn-sm source-sans-pro-300"
+        (click)="resultDecider(teamA.totalRuns ,teamB.totalRuns, teamA.totalBoundaries, teamB.totalBoundaries)">See
+        Result</button>
+    </div>
   </div>
 </div>

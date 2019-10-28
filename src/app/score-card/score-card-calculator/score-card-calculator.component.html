@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-header">
-    <h4 class="text-center">Score Card</h4>
+    <h4 class="text-center"><strong>Result Calculator</strong> </h4>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="text-center">TEAM-A Score Board</h4>
+            <h4 class="text-center">TEAM-A</h4>
           </div>
           <div class="card-body">
             <form name="teamAForm" novalidate #teamAForm="ngForm">
@@ -90,7 +90,7 @@
                           </div>
                         </td>
 
-                        <td class="col-sm-4">
+                        <td class="col-sm-3">
                           <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversBowled"
                             name="{{new.oversBowled}}" placeholder="Overs Bowled" #oversBowled="ngModel" minlength="1"
                             [ngModelOptions]="{standalone: true}">
@@ -114,7 +114,7 @@
           <div class="card-footer text-muted">
             <div class="text-right source-sans-pro-300">
               <button type="submit" class="btn btn-success btn-sm source-sans-pro-300" (click)="addTeamA(teamAForm)"
-                [disabled]="!teamAForm.form.valid">Submit</button>
+                [disabled]="teamAList.length > 2">Submit</button>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="text-center">TEAM-B Score Board</h4>
+            <h4 class="text-center">TEAM-B</h4>
           </div>
           <div class="card-body">
             <form name="teamBForm" novalidate #teamBForm="ngForm">
@@ -205,7 +205,7 @@
                           </div>
                         </td>
 
-                        <td class="col-sm-4">
+                        <td class="col-sm-3">
                           <input type="number" class="form-control w-100 form-control-sm" [(ngModel)]="new.oversBowled"
                             name="{{new.oversBowled}}" placeholder="Overs Bowled" #oversBowled="ngModel" minlength="1"
                             [ngModelOptions]="{standalone: true}">
@@ -239,7 +239,7 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="text-center">TEAM-A Final Stats<span *ngIf="teamA.result" class="badge-pill  badge badge-info">
+            <h4 class="text-center">TEAM-A Score Card<span *ngIf="teamA.result" class="badge-pill  badge badge-info">
                 <strong class="text-capitalize">{{teamA.result}}</strong></span></h4>
           </div>
           <div class="card-body">
@@ -271,7 +271,7 @@
       <div class="col-sm-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="text-center">TEAM-B Final Stats<span *ngIf="teamB.result" class="badge-pill  badge badge-info">
+            <h4 class="text-center">TEAM-B Score Card<span *ngIf="teamB.result" class="badge-pill  badge badge-info">
                 <strong class="text-capitalize">{{teamB.result}}</strong></span></h4>
           </div>
           <div class="card-body">
